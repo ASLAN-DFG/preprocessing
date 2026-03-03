@@ -1,0 +1,241 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "preprocessing"
+version = "0.1.0"
+description = "Preprocessing utilities for linguistic data"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [
+    {include = "preprocessing"}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.15"
+dkpro-cassis = ">=0.10.1,<0.11.0"
+spacy = ">=3.8.7,<4.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4.3,<8.0.0"
+
+[tool.poetry.extras]
+all = ["ca", "da", "de", "el", "en", "es", "fi", "fr", "hr", "it", "ja", "ko", "lt", "mk", "nb", "nl", "pl", "pt", "ro", "ru", "sl", "sv", "uk", "zh"]
+# Individual language support with all model sizes (sm, md, lg)
+ca = ["ca-core-news-sm", "ca-core-news-md", "ca-core-news-lg"]
+da = ["da-core-news-sm", "da-core-news-md", "da-core-news-lg"]
+de = ["de-core-news-sm", "de-core-news-md", "de-core-news-lg"]
+el = ["el-core-news-sm", "el-core-news-md", "el-core-news-lg"]
+en = ["en-core-web-sm", "en-core-web-md", "en-core-web-lg"]
+es = ["es-core-news-sm", "es-core-news-md", "es-core-news-lg"]
+fi = ["fi-core-news-sm", "fi-core-news-md", "fi-core-news-lg"]
+fr = ["fr-core-news-sm", "fr-core-news-md", "fr-core-news-lg"]
+hr = ["hr-core-news-sm", "hr-core-news-md", "hr-core-news-lg"]
+it = ["it-core-news-sm", "it-core-news-md", "it-core-news-lg"]
+ja = ["ja-core-news-sm", "ja-core-news-md", "ja-core-news-lg"]
+ko = ["ko-core-news-sm", "ko-core-news-md", "ko-core-news-lg"]
+lt = ["lt-core-news-sm", "lt-core-news-md", "lt-core-news-lg"]
+mk = ["mk-core-news-sm", "mk-core-news-md", "mk-core-news-lg"]
+nb = ["nb-core-news-sm", "nb-core-news-md", "nb-core-news-lg"]
+nl = ["nl-core-news-sm", "nl-core-news-md", "nl-core-news-lg"]
+pl = ["pl-core-news-sm", "pl-core-news-md", "pl-core-news-lg"]
+pt = ["pt-core-news-sm", "pt-core-news-md", "pt-core-news-lg"]
+ro = ["ro-core-news-sm", "ro-core-news-md", "ro-core-news-lg"]
+ru = ["ru-core-news-sm", "ru-core-news-md", "ru-core-news-lg"]
+sl = ["sl-core-news-sm", "sl-core-news-md", "sl-core-news-lg"]
+sv = ["sv-core-news-sm", "sv-core-news-md", "sv-core-news-lg"]
+uk = ["uk-core-news-sm", "uk-core-news-md", "uk-core-news-lg"]
+zh = ["zh-core-web-sm", "zh-core-web-md", "zh-core-web-lg"]
+
+# Catalan
+[tool.poetry.group.ca-sm.dependencies]
+ca-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ca_core_news_sm-3.8.0/ca_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ca-md.dependencies]
+ca-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/ca_core_news_md-3.8.0/ca_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ca-lg.dependencies]
+ca-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/ca_core_news_lg-3.8.0/ca_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Danish
+[tool.poetry.group.da-sm.dependencies]
+da-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/da_core_news_sm-3.8.0/da_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.da-md.dependencies]
+da-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/da_core_news_md-3.8.0/da_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.da-lg.dependencies]
+da-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/da_core_news_lg-3.8.0/da_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# German
+[tool.poetry.group.de-sm.dependencies]
+de-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.de-md.dependencies]
+de-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_md-3.8.0/de_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.de-lg.dependencies]
+de-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/de_core_news_lg-3.8.0/de_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Greek
+[tool.poetry.group.el-sm.dependencies]
+el-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/el_core_news_sm-3.8.0/el_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.el-md.dependencies]
+el-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/el_core_news_md-3.8.0/el_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.el-lg.dependencies]
+el-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/el_core_news_lg-3.8.0/el_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# English (Note: uses 'web' domain, not 'news')
+[tool.poetry.group.en-sm.dependencies]
+en-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.en-md.dependencies]
+en-core-web-md = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.en-lg.dependencies]
+en-core-web-lg = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl"}
+
+# Spanish
+[tool.poetry.group.es-sm.dependencies]
+es-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.8.0/es_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.es-md.dependencies]
+es-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_md-3.8.0/es_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.es-lg.dependencies]
+es-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_lg-3.8.0/es_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Finnish
+[tool.poetry.group.fi-sm.dependencies]
+fi-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/fi_core_news_sm-3.8.0/fi_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.fi-md.dependencies]
+fi-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/fi_core_news_md-3.8.0/fi_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.fi-lg.dependencies]
+fi-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/fi_core_news_lg-3.8.0/fi_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# French
+[tool.poetry.group.fr-sm.dependencies]
+fr-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.8.0/fr_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.fr-md.dependencies]
+fr-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_md-3.8.0/fr_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.fr-lg.dependencies]
+fr-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_lg-3.8.0/fr_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Croatian
+[tool.poetry.group.hr-sm.dependencies]
+hr-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/hr_core_news_sm-3.8.0/hr_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.hr-md.dependencies]
+hr-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/hr_core_news_md-3.8.0/hr_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.hr-lg.dependencies]
+hr-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/hr_core_news_lg-3.8.0/hr_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Italian
+[tool.poetry.group.it-sm.dependencies]
+it-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/it_core_news_sm-3.8.0/it_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.it-md.dependencies]
+it-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/it_core_news_md-3.8.0/it_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.it-lg.dependencies]
+it-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/it_core_news_lg-3.8.0/it_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Japanese
+[tool.poetry.group.ja-sm.dependencies]
+ja-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ja_core_news_sm-3.8.0/ja_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ja-md.dependencies]
+ja-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/ja_core_news_md-3.8.0/ja_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ja-lg.dependencies]
+ja-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/ja_core_news_lg-3.8.0/ja_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Korean
+[tool.poetry.group.ko-sm.dependencies]
+ko-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ko_core_news_sm-3.8.0/ko_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ko-md.dependencies]
+ko-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/ko_core_news_md-3.8.0/ko_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ko-lg.dependencies]
+ko-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/ko_core_news_lg-3.8.0/ko_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Lithuanian
+[tool.poetry.group.lt-sm.dependencies]
+lt-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/lt_core_news_sm-3.8.0/lt_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.lt-md.dependencies]
+lt-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/lt_core_news_md-3.8.0/lt_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.lt-lg.dependencies]
+lt-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/lt_core_news_lg-3.8.0/lt_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Macedonian
+[tool.poetry.group.mk-sm.dependencies]
+mk-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/mk_core_news_sm-3.8.0/mk_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.mk-md.dependencies]
+mk-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/mk_core_news_md-3.8.0/mk_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.mk-lg.dependencies]
+mk-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/mk_core_news_lg-3.8.0/mk_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Norwegian Bokmål
+[tool.poetry.group.nb-sm.dependencies]
+nb-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/nb_core_news_sm-3.8.0/nb_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.nb-md.dependencies]
+nb-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/nb_core_news_md-3.8.0/nb_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.nb-lg.dependencies]
+nb-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/nb_core_news_lg-3.8.0/nb_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Dutch
+[tool.poetry.group.nl-sm.dependencies]
+nl-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/nl_core_news_sm-3.8.0/nl_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.nl-md.dependencies]
+nl-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/nl_core_news_md-3.8.0/nl_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.nl-lg.dependencies]
+nl-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/nl_core_news_lg-3.8.0/nl_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Polish
+[tool.poetry.group.pl-sm.dependencies]
+pl-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.8.0/pl_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.pl-md.dependencies]
+pl-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/pl_core_news_md-3.8.0/pl_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.pl-lg.dependencies]
+pl-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/pl_core_news_lg-3.8.0/pl_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Portuguese
+[tool.poetry.group.pt-sm.dependencies]
+pt-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.8.0/pt_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.pt-md.dependencies]
+pt-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/pt_core_news_md-3.8.0/pt_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.pt-lg.dependencies]
+pt-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/pt_core_news_lg-3.8.0/pt_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Romanian
+[tool.poetry.group.ro-sm.dependencies]
+ro-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ro_core_news_sm-3.8.0/ro_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ro-md.dependencies]
+ro-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/ro_core_news_md-3.8.0/ro_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ro-lg.dependencies]
+ro-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/ro_core_news_lg-3.8.0/ro_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Russian
+[tool.poetry.group.ru-sm.dependencies]
+ru-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ru_core_news_sm-3.8.0/ru_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ru-md.dependencies]
+ru-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/ru_core_news_md-3.8.0/ru_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.ru-lg.dependencies]
+ru-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/ru_core_news_lg-3.8.0/ru_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Slovenian
+[tool.poetry.group.sl-sm.dependencies]
+sl-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/sl_core_news_sm-3.8.0/sl_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.sl-md.dependencies]
+sl-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/sl_core_news_md-3.8.0/sl_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.sl-lg.dependencies]
+sl-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/sl_core_news_lg-3.8.0/sl_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Swedish
+[tool.poetry.group.sv-sm.dependencies]
+sv-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/sv_core_news_sm-3.8.0/sv_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.sv-md.dependencies]
+sv-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/sv_core_news_md-3.8.0/sv_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.sv-lg.dependencies]
+sv-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/sv_core_news_lg-3.8.0/sv_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Ukrainian
+[tool.poetry.group.uk-sm.dependencies]
+uk-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/uk_core_news_sm-3.8.0/uk_core_news_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.uk-md.dependencies]
+uk-core-news-md = {url = "https://github.com/explosion/spacy-models/releases/download/uk_core_news_md-3.8.0/uk_core_news_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.uk-lg.dependencies]
+uk-core-news-lg = {url = "https://github.com/explosion/spacy-models/releases/download/uk_core_news_lg-3.8.0/uk_core_news_lg-3.8.0-py3-none-any.whl"}
+
+# Chinese (Note: uses 'web' domain, not 'news')
+[tool.poetry.group.zh-sm.dependencies]
+zh-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.8.0/zh_core_web_sm-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.zh-md.dependencies]
+zh-core-web-md = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_md-3.8.0/zh_core_web_md-3.8.0-py3-none-any.whl"}
+[tool.poetry.group.zh-lg.dependencies]
+zh-core-web-lg = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_lg-3.8.0/zh_core_web_lg-3.8.0-py3-none-any.whl"}
