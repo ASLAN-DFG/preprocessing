@@ -1,9 +1,7 @@
 import logging
 import spacy
-import unicodedata
 from cassis import Cas
-from preprocessing.api import T_TOKEN, T_SENT, T_POS, T_DEP, T_LEMMA
-from preprocessing.util import get_aslan_typesystem
+from preprocessing.api import BasePreprocessor, T_TOKEN, T_SENT, T_POS, T_DEP, T_LEMMA
 
 logger = logging.getLogger(__name__)
 
@@ -89,7 +87,7 @@ def _resolve_model_name(language: str, model_name: str | None = None, size: str 
     return f"{LANGUAGE_MODELS[language]}_{size}"
 
 
-class Spacy_Preprocessor:
+class Spacy_Preprocessor(BasePreprocessor):
     def __init__(self, language: str, model_name: str | None = None, size: str | None = None):
         """
         Initialize the spaCy preprocessor.
@@ -100,13 +98,12 @@ class Spacy_Preprocessor:
                         Assumes the model is already installed.
             size: Model size ('sm', 'md', 'lg'). Default: 'md'. Ignored if model_name is provided.
         """
-        self.language = language
+        super().__init__(language)
         self.size = size or DEFAULT_SIZE
         self.model_name = _resolve_model_name(language, model_name, size)
         
         # Lazy load model on first use
         self.nlp = None
-        self.ts = get_aslan_typesystem()
     
     def _load_model(self):
         """Lazy load the spacy model on first use."""
@@ -123,22 +120,25 @@ class Spacy_Preprocessor:
             self.nlp = spacy.load(self.model_name)
             _MODEL_CACHE[self.model_name] = self.nlp
         except OSError as e:
-            raise OSError(
-                f"Model '{self.model_name}' not found. Install it with:\n"
-                f"  pip install preprocessing[{self.language}]\n"
-                f"Or download manually:\n"
-                f"  python -m spacy download {self.model_name}"
-            ) from e
+            # Try to download the model automatically as a fallback
+            logger.info(f"Model '{self.model_name}' not found. Attempting to download...")
+            try:
+                from spacy.cli import download
+                download(self.model_name)
+                self.nlp = spacy.load(self.model_name)
+                _MODEL_CACHE[self.model_name] = self.nlp
+                logger.info(f"Successfully downloaded and loaded model: {self.model_name}")
+            except Exception as download_error:
+                raise OSError(
+                    f"Model '{self.model_name}' not found and automatic download failed. Install it with:\n"
+                    f"  pip install preprocessing[{self.language}]\n"
+                    f"Or download manually:\n"
+                    f"  python -m spacy download {self.model_name}"
+                ) from download_error
         
         return self.nlp
 
-    def _clean_string(self, text: str) -> str:
-        ''' Remove control characters and extra whitespace '''
-        cleaned = ''.join(ch for ch in text if unicodedata.category(ch) != "Cc")
-        unstretched = ' '.join(cleaned.split())
-        return unstretched
-
-    def run(self, text) -> Cas:
+    def run(self, text: str) -> Cas:
         self.cas = Cas(self.ts)
 
         # converting from spaCy to DKPro is challenging

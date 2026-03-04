@@ -4,6 +4,7 @@ from preprocessing.api import T_TOKEN, T_SENT, T_POS, T_DEP, T_LEMMA
 from preprocessing.util import get_aslan_typesystem
 from preprocessing.spacy import Spacy_Preprocessor
 
+
 def test_spacy_preprocessing():
     ts = get_aslan_typesystem()
     text = "Demokratie ist eher abstrakt. Leben ist konkret."
